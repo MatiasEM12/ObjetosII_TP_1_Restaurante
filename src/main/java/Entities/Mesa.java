@@ -15,7 +15,7 @@ public class Mesa {
 
         this.capacidad = capacidad;
         this.numeroMesa = numeroMesa;
-        this.comensales = new ArrayList<>(10);
+        this.comensales = new ArrayList<>(capacidad);
     }
 
     public void agregarComensal(Comensal comensal) {
