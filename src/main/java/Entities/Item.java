@@ -20,6 +20,10 @@ public class Item {
         return producto.getPrecio() * cantidad;
     }
 
+    public Producto getProducto() {
+        return producto;
+    }
+
     //VALIDACIONES
 
     private void validarProducto(Producto producto) {

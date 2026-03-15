@@ -15,4 +15,8 @@ public enum Propina {
     public double calcularSobre(double monto) {
         return monto * porcentaje;
     }
+
+    public double getPorcentaje() {
+        return porcentaje;
+    }
 }
