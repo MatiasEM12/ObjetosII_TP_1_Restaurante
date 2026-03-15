@@ -6,7 +6,8 @@ public class Mesa {
 
     private Integer capacidad;
     private Integer numeroMesa;
-    private ArrayList<Comensal> comensales;
+    private ArrayList<Pedido> historialPedidos= new ArrayList<>();
+    private Boolean estaOcupada=false;
 
     public Mesa(Integer capacidad, Integer numeroMesa) {
 
@@ -15,26 +16,28 @@ public class Mesa {
 
         this.capacidad = capacidad;
         this.numeroMesa = numeroMesa;
-        this.comensales = new ArrayList<>(capacidad);
+
     }
 
-    public void agregarComensal(Comensal comensal) {
 
-        validarComensal(comensal);
-        if (comensales.size() < capacidad) {
-            comensales.add(comensal);
-        } else {
-            throw new IllegalStateException("La mesa está llena. No se pueden agregar más comensales.");
+    public void ocuparMesa(){
+        if(estaOcupada){
+            throw new IllegalStateException("La mesa ya está ocupada.");
         }
+        estaOcupada=true;
     }
 
-    public void agregarComensales(ArrayList<Comensal> comensales) {
-        validarComensales(comensales);
-        if (this.comensales.size() + comensales.size() <= capacidad) {
-            this.comensales.addAll(comensales);
-        } else {
-            throw new IllegalStateException("La mesa no tiene suficiente capacidad para agregar a todos los comensales.");
+    public void liberarMesa(){
+        if(!estaOcupada){
+            throw new IllegalStateException("La mesa ya está libre.");
         }
+        estaOcupada=false;
+
+    }
+    public void agregarPedido(Pedido pedido){
+        if(!estaOcupada)throw new IllegalStateException("La mesa debe estar ocupada para agregar un pedido.");
+        validarPedido(pedido);
+        historialPedidos.add(pedido);
     }
 
 
@@ -52,15 +55,9 @@ public class Mesa {
         }
     }
 
-    private void validarComensal(Comensal comensal){
-        if(comensal==null){
-            throw new IllegalArgumentException("El comensal no puede ser nulo.");
-        }
-    }
-
-    private void validarComensales(ArrayList<Comensal> comensales){
-        if(comensales==null || comensales.isEmpty()){
-            throw new IllegalArgumentException("La lista de comensales no puede ser nula o vacía.");
+    private void validarPedido(Pedido pedido){
+        if(pedido==null){
+            throw new IllegalArgumentException("El pedido no puede ser nulo.");
         }
     }
 }
