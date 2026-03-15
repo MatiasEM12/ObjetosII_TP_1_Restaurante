@@ -13,6 +13,10 @@ public abstract  class Producto {
         this.precio = precio;
     }
 
+    public Double getPrecio() {
+        return precio;
+    }
+
     //VALIDACIONES
 
     private void validarNombre(String nombre) {
