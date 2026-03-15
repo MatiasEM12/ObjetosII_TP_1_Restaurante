@@ -8,19 +8,18 @@ public class Pedido {
 
 
     private ArrayList<Item> items;
-    private Boolean confirmado;
-    private Double propina;
+    private Boolean confirmado=false;
+    private Propina propina;
     private TarjetaCredito tarjeta;
 
-    public Pedido(ArrayList<Item> items, TarjetaCredito tarjeta, Double propina, Boolean confirmado) {
+    public Pedido(ArrayList<Item> items, TarjetaCredito tarjeta, Propina propina) {
 
         validarItems(items);
         validarTarjeta(tarjeta);
         validarPropina(propina);
-        validarConfirmacion(confirmado );
+
 
         this.items = items;
-        this.confirmado = confirmado;
         this.propina = propina;
         this.tarjeta = tarjeta;
     }
@@ -35,7 +34,26 @@ public class Pedido {
         confirmado=true;
     }
 
-    public double obtenerTotalBebidas() {
+    public void agregarItem(Item item){
+        if(item==null){
+            throw new IllegalArgumentException("El item no puede ser nulo.");
+        }
+
+        if(confirmado) throw new IllegalStateException("No se pueden agregar items a un pedido ya confirmado.");
+
+        items.add(item);
+    }
+
+    public void agregarItems(ArrayList<Item> nuevosItems){
+        if(nuevosItems==null || nuevosItems.isEmpty()){
+            throw new IllegalArgumentException("La lista de items no puede ser nula o vacía.");
+        }
+
+        if(confirmado) throw new IllegalStateException("No se pueden agregar items a un pedido ya confirmado.");
+
+        items.addAll(nuevosItems);
+    }
+    public double obtenerSubTotalBebidas() {
         double total = 0;
         for (Item item : items) {
             if (item.getProducto() instanceof Bebida) {
@@ -45,7 +63,7 @@ public class Pedido {
         return total;
     }
 
-    public double obtenerTotalPlatos() {
+    public double obtenerSubTotalPlatos() {
         double total = 0;
         for (Item item : items) {
             if (item.getProducto() instanceof Plato) {
@@ -56,7 +74,7 @@ public class Pedido {
     }
 
 
-    public double obtenerTotal(){
+    public double obtenerSubTotal(){
         double total = 0;
         for (Item item : items) {
             total += item.obtenerSubtotal();
@@ -65,6 +83,15 @@ public class Pedido {
 
     }
 
+    public double calcularTotal(){
+
+        double subTotal = obtenerSubTotal();
+        double descuento = tarjeta.calcularDescuento(this);
+        double propinaCalculada = propina.calcularPropina(subTotal);
+
+        return subTotal - descuento + propinaCalculada;
+
+    }
     //VALIDACIONES
 
     private void validarItems(ArrayList<Item> items){
@@ -79,15 +106,10 @@ public class Pedido {
         }
     }
 
-    private void validarPropina(Double propina){
-        if(propina==null || propina < 0){
-            throw new IllegalArgumentException("La propina debe ser un número positivo o cero.");
+    private void validarPropina(Propina propina){
+        if(propina==null){
+            throw new IllegalArgumentException("El pedido debe tener una propina asociada.");
         }
-
-        if (Arrays.stream(Propina.values()).noneMatch(p -> p.getPorcentaje() == propina)) {
-            throw new IllegalArgumentException("La propina debe corresponder a uno de los valores permitidos del enum Propina.");
-        }
-
     }
 
     private void validarConfirmacion(Boolean confirmado){

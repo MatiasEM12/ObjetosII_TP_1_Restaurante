@@ -22,6 +22,20 @@ public class Menu {
 
     }
 
+    public ArrayList<Plato> getPlatos() {
+        return platos;
+    }
+
+    public ArrayList <Bebida> getBebidas() {
+        return bebidas;
+    }
+
+    public ArrayList <Producto> obtenerProductos() {
+        ArrayList<Producto> productos = new ArrayList<>();
+        productos.addAll(platos);
+        productos.addAll(bebidas);
+        return productos;
+    }
 
     //VALIDACIONES
 

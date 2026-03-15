@@ -6,6 +6,6 @@ public class TarjetaVisa implements  TarjetaCredito {
 
     @Override
     public double calcularDescuento(Pedido pedido) {
-        return pedido.obtenerTotalBebidas() * DESCUENTO_TOTAL_BEBIDAS;
+        return pedido.obtenerSubTotalBebidas() * DESCUENTO_TOTAL_BEBIDAS;
     }
 }

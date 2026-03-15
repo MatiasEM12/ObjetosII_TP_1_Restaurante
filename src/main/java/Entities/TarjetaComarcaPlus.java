@@ -6,6 +6,6 @@ public class TarjetaComarcaPlus implements TarjetaCredito {
 
     @Override
     public double calcularDescuento(Pedido pedido) {
-        return pedido.obtenerTotal() * DESCUENTO_TOTAL_PEDIDO;
+        return pedido.obtenerSubTotal() * DESCUENTO_TOTAL_PEDIDO;
     }
 }
