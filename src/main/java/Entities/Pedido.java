@@ -12,14 +12,14 @@ public class Pedido {
     private Propina propina;
     private TarjetaCredito tarjeta;
 
-    public Pedido(ArrayList<Item> items, TarjetaCredito tarjeta, Propina propina) {
+    public Pedido( TarjetaCredito tarjeta, Propina propina) {
 
-        validarItems(items);
+
         validarTarjeta(tarjeta);
         validarPropina(propina);
 
 
-        this.items = items;
+        this.items = new ArrayList<>();
         this.propina = propina;
         this.tarjeta = tarjeta;
     }
@@ -75,22 +75,25 @@ public class Pedido {
 
 
     public double obtenerSubTotal(){
-        double total = 0;
-        for (Item item : items) {
-            total += item.obtenerSubtotal();
-        }
-        return total;
+        return obtenerSubTotalBebidas() + obtenerSubTotalPlatos();
+
 
     }
 
+
     public double calcularTotal(){
 
+        if(!confirmado) throw new IllegalStateException("El pedido debe estar confirmado para calcular el total.");
+
         double subTotal = obtenerSubTotal();
+
         double descuento = tarjeta.calcularDescuento(this);
-        double propinaCalculada = propina.calcularPropina(subTotal);
 
-        return subTotal - descuento + propinaCalculada;
+        double totalConDescuento = subTotal - descuento;
 
+        double propinaCalculada = propina.calcularSobre(totalConDescuento);
+
+        return totalConDescuento + propinaCalculada;
     }
     //VALIDACIONES
 
