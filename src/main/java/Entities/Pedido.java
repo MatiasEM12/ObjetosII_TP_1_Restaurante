@@ -52,45 +52,27 @@ public class Pedido {
 
         items.addAll(nuevosItems);
     }
-    public double obtenerSubTotalBebidas() {
-        double total = 0;
-        for (Item item : items) {
-            if (item.getProducto() instanceof Bebida) {
-                total += item.obtenerSubtotal();
-            }
-        }
-        return total;
-    }
 
-    // Método alternativo usando Stream
-    public double obtenerTotalBebidas() {
+
+    public double obtenerSubtotalSegun(CriterioItem criterio) {
         return items.stream()
-                .filter(item -> item.getProducto() instanceof Bebida)
+                .filter(item -> item.correspondeA(criterio))
                 .mapToDouble(Item::obtenerSubtotal)
                 .sum();
+    }
+
+    public double obtenerSubTotalBebidas() {
+        return obtenerSubtotalSegun(new SoloBebidas());
     }
 
     public double obtenerSubTotalPlatos() {
-        double total = 0;
-        for (Item item : items) {
-            if (item.getProducto() instanceof Plato) {
-                total += item.obtenerSubtotal();
-            }
-        }
-        return total;
+        return obtenerSubtotalSegun(new SoloPlatos());
     }
 
-    public double obtenerTotalPlatos() {
+    public double obtenerSubTotal() {
         return items.stream()
-                .filter(item -> item.getProducto() instanceof Plato)
                 .mapToDouble(Item::obtenerSubtotal)
                 .sum();
-    }
-
-    public double obtenerSubTotal(){
-        return obtenerSubTotalBebidas() + obtenerSubTotalPlatos();
-
-
     }
 
 

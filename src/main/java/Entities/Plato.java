@@ -16,6 +16,15 @@ public class Plato  extends Producto {
 
     }
 
+    @Override
+    public boolean correspondeA(CriterioItem criterio) {
+        return criterio.cumpleParaPlato(this);
+    }
+
+    @Override
+    public double subtotalComoPlato(double subtotal) {
+        return subtotal;
+    }
 
     //VALIDACIONES
 

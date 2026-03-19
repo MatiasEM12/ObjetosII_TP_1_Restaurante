@@ -24,6 +24,13 @@ public class Item {
         return producto;
     }
 
+    public double subtotalComoBebida() {
+        return producto.subtotalComoBebida(obtenerSubtotal());
+    }
+
+    public double subtotalComoPlato() {
+        return producto.subtotalComoPlato(obtenerSubtotal());
+    }
     //VALIDACIONES
 
     private void validarProducto(Producto producto) {
@@ -36,5 +43,9 @@ public class Item {
         if (cantidad == null || cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser un número entero positivo.");
         }
+    }
+
+    public boolean correspondeA(CriterioItem criterio) {
+
     }
 }

@@ -1,6 +1,6 @@
 package Entities;
 
-public abstract  class Producto {
+public abstract  class Producto implements ItemPedido {
 
     private String nombre;
     private Double precio;
@@ -15,6 +15,14 @@ public abstract  class Producto {
 
     public Double getPrecio() {
         return precio;
+    }
+
+    public double subtotalComoBebida(double subtotal) {
+        return 0;
+    }
+
+    public double subtotalComoPlato(double subtotal) {
+        return 0;
     }
 
     //VALIDACIONES

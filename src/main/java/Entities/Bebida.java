@@ -27,6 +27,12 @@ public class Bebida extends Producto {
     }
 
 
-
-
+    @Override
+    public boolean correspondeA(CriterioItem criterio) {
+        return criterio.cumpleParaBebida(this);
+    }
+    @Override
+    public double subtotalComoBebida(double subtotal) {
+        return subtotal;
+    }
 }
