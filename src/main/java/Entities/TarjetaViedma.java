@@ -1,7 +1,10 @@
 package Entities;
 
-public class TarjetaViedma implements TarjetaCredito {
+public class TarjetaViedma extends Tarjeta {
 
+    public TarjetaViedma(Long numeroTarjeta){
+        super(numeroTarjeta);
+    }
 
 
     @Override
