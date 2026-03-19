@@ -1,6 +1,6 @@
 package Entities;
 
-public abstract  class Producto implements ItemPedido {
+public abstract  class Producto  {
 
     private String nombre;
     private Double precio;
@@ -25,6 +25,7 @@ public abstract  class Producto implements ItemPedido {
         return 0;
     }
 
+    public abstract boolean correspondeA(CriterioItem criterio);
     //VALIDACIONES
 
     private void validarNombre(String nombre) {

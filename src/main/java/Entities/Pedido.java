@@ -98,7 +98,7 @@ public class Pedido {
         }
     }
 
-    private void validarTarjeta(TarjetaCredito tarjeta){
+    private void validarTarjeta(Tarjeta tarjeta){
         if(tarjeta==null){
             throw new IllegalArgumentException("El pedido debe tener una tarjeta asociada.");
         }

@@ -46,6 +46,6 @@ public class Item {
     }
 
     public boolean correspondeA(CriterioItem criterio) {
-
+        return producto.correspondeA(criterio);
     }
 }
