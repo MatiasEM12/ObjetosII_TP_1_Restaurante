@@ -10,9 +10,9 @@ public class Pedido {
     private ArrayList<Item> items;
     private Boolean confirmado=false;
     private Propina propina;
-    private TarjetaCredito tarjeta;
+    private Tarjeta tarjeta;
 
-    public Pedido( TarjetaCredito tarjeta, Propina propina) {
+    public Pedido( Tarjeta tarjeta, Propina propina) {
 
 
         validarTarjeta(tarjeta);
@@ -29,7 +29,8 @@ public class Pedido {
             throw new IllegalStateException("El pedido debe contener al menos un item para ser confirmado.");
         }
 
-        if(confirmado) throw new IllegalStateException("El pedido ya ha sido confirmado.");
+        validarConfirmacion(confirmado);
+
 
         confirmado=true;
     }
@@ -45,9 +46,7 @@ public class Pedido {
     }
 
     public void agregarItems(ArrayList<Item> nuevosItems){
-        if(nuevosItems==null || nuevosItems.isEmpty()){
-            throw new IllegalArgumentException("La lista de items no puede ser nula o vacía.");
-        }
+       validarItems(nuevosItems);
 
         if(confirmado) throw new IllegalStateException("No se pueden agregar items a un pedido ya confirmado.");
 
@@ -63,6 +62,14 @@ public class Pedido {
         return total;
     }
 
+    // Método alternativo usando Stream
+    public double obtenerTotalBebidas() {
+        return items.stream()
+                .filter(item -> item.getProducto() instanceof Bebida)
+                .mapToDouble(Item::obtenerSubtotal)
+                .sum();
+    }
+
     public double obtenerSubTotalPlatos() {
         double total = 0;
         for (Item item : items) {
@@ -73,6 +80,12 @@ public class Pedido {
         return total;
     }
 
+    public double obtenerTotalPlatos() {
+        return items.stream()
+                .filter(item -> item.getProducto() instanceof Plato)
+                .mapToDouble(Item::obtenerSubtotal)
+                .sum();
+    }
 
     public double obtenerSubTotal(){
         return obtenerSubTotalBebidas() + obtenerSubTotalPlatos();
@@ -110,8 +123,8 @@ public class Pedido {
     }
 
     private void validarPropina(Propina propina){
-        if(propina==null){
-            throw new IllegalArgumentException("El pedido debe tener una propina asociada.");
+        if(propina==null || !Arrays.stream(Propina.values()).anyMatch(p -> p.equals(propina))){
+            throw new IllegalArgumentException("El pedido debe tener una propina válida asociada.");
         }
     }
 
@@ -119,6 +132,8 @@ public class Pedido {
         if(confirmado==null){
             throw new IllegalArgumentException("El estado de confirmación no puede ser nulo.");
         }
+
+        if(confirmado) throw new IllegalStateException("El pedido ya ha sido confirmado.");
     }
 
 
