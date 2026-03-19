@@ -6,11 +6,27 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TarjetasTest {
-    @Test
-    public void testTarjetaCredito() {
 
+
+    @Test
+    void costoTarjetaVisa(){
 
     }
+    @Test
+    void costoTarjetaMastercard(){
+
+    }
+
+    @Test
+    void costoTarjetaComarcaPlus(){
+
+    }
+
+    @Test
+    void costoTarjetaViedma(){
+
+    }
+
 
 
 
