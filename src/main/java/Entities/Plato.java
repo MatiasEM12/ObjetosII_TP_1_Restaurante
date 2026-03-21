@@ -30,9 +30,8 @@ public class Plato  extends Producto {
 
 
     private void validarDisponible(Boolean disponible){
-        if(disponible==null){
-            throw new IllegalArgumentException("La disponibilidad del plato no puede ser nula.");
-        }
+        if(disponible==null)throw new IllegalArgumentException("La disponibilidad del plato no puede ser nula.");
+
     }
 
 

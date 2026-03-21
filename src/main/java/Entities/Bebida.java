@@ -8,8 +8,6 @@ public class Bebida extends Producto {
     public Bebida(String nombre, Double precio, Boolean disponible) {
 
 
-
-
         super (nombre, precio);
         validarDisponible(disponible);
         this.disponible = disponible;
@@ -21,9 +19,8 @@ public class Bebida extends Producto {
 
 
     private void validarDisponible(Boolean disponible){
-        if(disponible==null){
-            throw new IllegalArgumentException("La disponibilidad de la bebida no puede ser nula.");
-        }
+        if(disponible==null)throw new IllegalArgumentException("La disponibilidad de la bebida no puede ser nula.");
+
     }
 
 

@@ -25,9 +25,8 @@ public class Pedido {
     }
 
     public void confirmarPedido(){
-        if(items.isEmpty()){
-            throw new IllegalStateException("El pedido debe contener al menos un item para ser confirmado.");
-        }
+        if(items.isEmpty())throw new IllegalStateException("El pedido debe contener al menos un item para ser confirmado.");
+
 
         validarConfirmacion(confirmado);
 
@@ -36,9 +35,8 @@ public class Pedido {
     }
 
     public void agregarItem(Item item){
-        if(item==null){
-            throw new IllegalArgumentException("El item no puede ser nulo.");
-        }
+        if(item==null)throw new IllegalArgumentException("El item no puede ser nulo.");
+
 
         if(confirmado) throw new IllegalStateException("No se pueden agregar items a un pedido ya confirmado.");
 
@@ -93,15 +91,13 @@ public class Pedido {
     //VALIDACIONES
 
     private void validarItems(ArrayList<Item> items){
-        if(items==null || items.isEmpty()){
-            throw new IllegalArgumentException("El pedido debe contener al menos un item.");
-        }
+        if(items==null || items.isEmpty())throw new IllegalArgumentException("El pedido debe contener al menos un item.");
+
     }
 
     private void validarTarjeta(Tarjeta tarjeta){
-        if(tarjeta==null){
-            throw new IllegalArgumentException("El pedido debe tener una tarjeta asociada.");
-        }
+        if(tarjeta==null)throw new IllegalArgumentException("El pedido debe tener una tarjeta asociada.");
+
     }
 
     private void validarPropina(Propina propina){
@@ -111,9 +107,8 @@ public class Pedido {
     }
 
     private void validarConfirmacion(Boolean confirmado){
-        if(confirmado==null){
-            throw new IllegalArgumentException("El estado de confirmación no puede ser nulo.");
-        }
+        if(confirmado==null)throw new IllegalArgumentException("El estado de confirmación no puede ser nulo.");
+
 
         if(confirmado) throw new IllegalStateException("El pedido ya ha sido confirmado.");
     }

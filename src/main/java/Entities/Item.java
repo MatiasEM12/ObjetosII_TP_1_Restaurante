@@ -1,6 +1,6 @@
 package Entities;
 
-public class Item {
+public class Item  {
 
     private Producto producto;
     private Integer cantidad;
@@ -34,17 +34,14 @@ public class Item {
     //VALIDACIONES
 
     private void validarProducto(Producto producto) {
-        if (producto == null) {
-            throw new IllegalArgumentException("El producto no puede ser nulo.");
-        }
+        if (producto == null) throw new IllegalArgumentException("El producto no puede ser nulo.");
+
     }
 
     private void validarCantidad(Integer cantidad) {
-        if (cantidad == null || cantidad <= 0) {
-            throw new IllegalArgumentException("La cantidad debe ser un número entero positivo.");
-        }
-    }
+        if (cantidad == null || cantidad <= 0) throw new IllegalArgumentException("La cantidad debe ser un número entero positivo.");
 
+    }
     public boolean correspondeA(CriterioItem criterio) {
         return producto.correspondeA(criterio);
     }
