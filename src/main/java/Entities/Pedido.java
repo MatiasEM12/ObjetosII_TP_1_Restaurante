@@ -87,6 +87,7 @@ public class Pedido {
         double propinaCalculada = propina.calcularSobre(totalConDescuento);
 
         return totalConDescuento + propinaCalculada;
+
     }
     //VALIDACIONES
 
