@@ -1,5 +1,7 @@
 package Entities;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,6 +14,8 @@ public class Pedido {
     private Propina propina;
     private Tarjeta tarjeta;
 
+    private LocalDateTime horaPago;
+    private Double venta=0.0;
     public Pedido( Tarjeta tarjeta, Propina propina) {
 
 
@@ -23,6 +27,27 @@ public class Pedido {
         this.propina = propina;
         this.tarjeta = tarjeta;
     }
+
+    public Pedido( Tarjeta tarjeta, Propina propina, Double venta, LocalDateTime horaPago,ArrayList<Item> items,Boolean confirmado ) {
+
+
+        validarTarjeta(tarjeta);
+        validarPropina(propina);
+        validarItems(items);
+        validarConfirmacion(confirmado);
+        validarVenta(venta);
+        validarHoraPago(horaPago);
+
+
+        this.items = items;
+        this.confirmado = confirmado;
+        this.propina = propina;
+        this.tarjeta = tarjeta;
+        this.horaPago = horaPago;
+        this.venta = venta;
+
+    }
+
 
     public void confirmarPedido(){
         if(items.isEmpty())throw new IllegalStateException("El pedido debe contener al menos un item para ser confirmado.");
@@ -86,7 +111,10 @@ public class Pedido {
 
         double propinaCalculada = propina.calcularSobre(totalConDescuento);
 
-        return totalConDescuento + propinaCalculada;
+        this.venta=totalConDescuento + propinaCalculada;
+        this.horaPago= LocalDateTime.now();
+
+        return venta;
 
     }
     //VALIDACIONES
@@ -114,6 +142,19 @@ public class Pedido {
         if(confirmado) throw new IllegalStateException("El pedido ya ha sido confirmado.");
     }
 
+    private void validarVenta(Double venta){
+        if(venta==null || venta<0)throw new IllegalArgumentException("La venta debe ser un valor positivo.");
+    }
 
+    private void validarHoraPago(LocalDateTime horaPago){
+        if(horaPago==null)throw new IllegalStateException("La hora de pago no puede ser nula.");
+    }
+    public String toStringVenta(){
+        if(this.horaPago==null || this.venta==0.0) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede generar la información de venta.");
 
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String fechaString = horaPago.format(formato);
+
+        return  horaPago+" || " +  String.valueOf(this.venta);
+    }
 }
