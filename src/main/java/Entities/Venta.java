@@ -2,6 +2,7 @@ package Entities;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Venta {
 
@@ -64,5 +65,17 @@ public class Venta {
 
     public String getId(){
         return this.id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Venta venta = (Venta) o;
+        return Objects.equals(id, venta.id) && Objects.equals(horaPago, venta.horaPago) && Objects.equals(pago, venta.pago);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, horaPago, pago);
     }
 }

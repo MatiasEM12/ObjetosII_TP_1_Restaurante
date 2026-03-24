@@ -14,7 +14,7 @@ public interface VentaDAO {
 
     void remove(Venta venta);
 
-    Venta find(Integer codigo);
+    Venta find(String codigo);
 
     List<Venta> findAll();
 }
