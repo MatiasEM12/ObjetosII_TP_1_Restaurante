@@ -1,5 +1,6 @@
 package Entities;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,6 +13,8 @@ public class Pedido {
     private Propina propina;
     private Tarjeta tarjeta;
 
+    private Venta venta;
+
     public Pedido( Tarjeta tarjeta, Propina propina) {
 
 
@@ -23,6 +26,23 @@ public class Pedido {
         this.propina = propina;
         this.tarjeta = tarjeta;
     }
+
+    public Pedido( Tarjeta tarjeta, Propina propina, Venta venta,ArrayList<Item> items,Boolean confirmado ) {
+
+
+        validarTarjeta(tarjeta);
+        validarPropina(propina);
+        validarItems(items);
+        validarConfirmacion(confirmado);
+        validarVenta(venta);
+
+        this.items = items;
+        this.confirmado = confirmado;
+        this.propina = propina;
+        this.tarjeta = tarjeta;
+        this.venta=venta;
+    }
+
 
     public void confirmarPedido(){
         if(items.isEmpty())throw new IllegalStateException("El pedido debe contener al menos un item para ser confirmado.");
@@ -44,7 +64,7 @@ public class Pedido {
     }
 
     public void agregarItems(ArrayList<Item> nuevosItems){
-       validarItems(nuevosItems);
+        validarItems(nuevosItems);
 
         if(confirmado) throw new IllegalStateException("No se pueden agregar items a un pedido ya confirmado.");
 
@@ -86,7 +106,11 @@ public class Pedido {
 
         double propinaCalculada = propina.calcularSobre(totalConDescuento);
 
-        return totalConDescuento + propinaCalculada;
+        Double pago= totalConDescuento + propinaCalculada;
+        this.venta= new Venta (LocalDateTime.now(),pago);
+
+        return pago;
+
     }
     //VALIDACIONES
 
@@ -113,6 +137,13 @@ public class Pedido {
         if(confirmado) throw new IllegalStateException("El pedido ya ha sido confirmado.");
     }
 
+    private void validarVenta(Venta venta){
+        if(venta==null)throw new IllegalStateException("La venta no puede ser nula al crear un pedido con venta.");
+    }
 
+    public String toStringVenta(){
+        if(this.venta==null) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede generar la información de venta.");
 
+        return  this.venta.toString();
+    }
 }
