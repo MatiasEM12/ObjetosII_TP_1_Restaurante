@@ -2,6 +2,7 @@ import Entities.*;
 import Persistence.ArchivoVentas;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,18 +86,32 @@ public class TarjetasTest {
         pedido.confirmarPedido();
         var pagar= pedido.calcularTotal();
 
-        var archivo= new ArchivoVentas();
 
-        archivo.crear(pedido.toStringVenta());
-        var ventas= archivo.listar();
+        try {
+            var archivo= new ArchivoVentas();
+            archivo.crear(pedido.toStringVenta());
+            ArrayList<String> ventas= archivo.listar();
+            assertTrue(ventas.contains(pedido.toStringVenta()), "La venta no se guardó correctamente en el archivo.");
 
-        assertTrue(ventas.contains(pedido.toStringVenta()));
+        } catch (Exception e) {
+            fail("Error al leer el archivo: " + e.getMessage());
+        } finally {
+            // Limpiar archivo temporal
 
+            File file = new File("ventas.txt");
+            file.delete();
+        }
     }
 
 
 
 
+
 }
+
+
+
+
+
 
 

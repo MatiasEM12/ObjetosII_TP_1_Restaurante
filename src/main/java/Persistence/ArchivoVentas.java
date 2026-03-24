@@ -25,6 +25,7 @@ public class ArchivoVentas implements GestionArchivo<String> {
 
             FileWriter writer = new FileWriter(archivo, true);
             writer.write(dato + System.lineSeparator());
+            writer.close();
         }catch (Exception e){
             throw  new RuntimeException("Error al escribir la venta en el archivo", e);
         }
