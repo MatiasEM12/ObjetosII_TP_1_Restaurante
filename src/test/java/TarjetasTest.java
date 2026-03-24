@@ -1,4 +1,5 @@
 import Entities.*;
+import Persistence.ArchivoVentas;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -68,6 +69,29 @@ public class TarjetasTest {
         var pagar= pedido.calcularTotal();
 
         assertEquals(408, pagar, 0.001);
+    }
+
+
+    @Test
+    void archivoVentas(){
+
+        var tarjetaVisa = new TarjetaVisa(4532015112830111L);
+        var pedido= new Pedido( tarjetaVisa, Propina.DOS);
+
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item(new Bebida("Coca-Cola", 100.00,true), 2));
+        items.add(new Item(new Plato("Hamburguesa", 200.00,true), 1));
+        pedido.agregarItems(items);
+        pedido.confirmarPedido();
+        var pagar= pedido.calcularTotal();
+
+        var archivo= new ArchivoVentas();
+
+        archivo.crear(pedido.toStringVenta());
+        var ventas= archivo.listar();
+
+        assertTrue(ventas.contains(pedido.toStringVenta()));
+
     }
 
 
