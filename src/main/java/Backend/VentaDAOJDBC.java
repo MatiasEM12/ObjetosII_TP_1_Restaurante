@@ -14,12 +14,13 @@ public class VentaDAOJDBC implements  VentaDAO {
     public void create(Venta venta) {
         if(venta ==null) throw new IllegalArgumentException("La venta no puede ser nula.");
 
-        final String SQL= "INSERT INTO ventas (hora_pago, venta) VALUES (?,?)";
+        final String SQL= "INSERT INTO ventas (id,hora_pago, pago) VALUES (?,?,?)";
 
         try(Connection conn = ConnectionManager.getConnection();
             PreparedStatement st = conn.prepareStatement(SQL)){
-            st.setString(1, formatoHoraPago(venta.getHoraPago()));
-            st.setDouble(2, venta.getVenta());
+            st.setString(1, venta.toString());
+            st.setString(2, formatoHoraPago(venta.getHoraPago()));
+            st.setDouble(3, venta.getPago());
             st.executeUpdate();
 
 
