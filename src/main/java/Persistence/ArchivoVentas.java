@@ -18,16 +18,21 @@ public class ArchivoVentas implements GestionArchivo<String> {
                 archivo.createNewFile();
             }
 
+            ArrayList<String> ventas = listar();
+            if(ventas.contains(dato)){
+               throw new IllegalArgumentException("La venta ya existe en el archivo.");
+            }
+
             FileWriter writer = new FileWriter(archivo, true);
             writer.write(dato + System.lineSeparator());
         }catch (Exception e){
-            System.out.println("Error al crear el archivo: " + e.getMessage());
+            throw  new RuntimeException("Error al escribir la venta en el archivo", e);
         }
 
     }
 
     @Override
-    public java.util.ArrayList<String> listar() {
+    public ArrayList<String> listar() {
         ArrayList<String> ventas = new ArrayList<>();
 
         if (!archivo.exists()) {
