@@ -1,14 +1,15 @@
 package Entities;
 
+import Persistence.ArchivoApi;
+
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Pedido {
 
 
-
+    private ArchivoApi api=new ArchivoApi();
     private ArrayList<Item> items;
     private Boolean confirmado=false;
     private Propina propina;
@@ -114,6 +115,7 @@ public class Pedido {
         Double pago =totalConDescuento + propinaCalculada;
         this.venta= new Venta(LocalDateTime.now(), pago);
 
+        api.persistirVenta(this.venta);
         return pago;
 
     }

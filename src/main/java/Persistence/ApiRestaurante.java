@@ -10,6 +10,6 @@ public interface ApiRestaurante {
 
     public void persistirVenta(Venta venta);
 
-    public void cobrar(Pedido pedido);
+
 
 }
