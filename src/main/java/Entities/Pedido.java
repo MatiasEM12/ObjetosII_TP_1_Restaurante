@@ -115,6 +115,7 @@ public class Pedido {
         this.venta= new Venta(LocalDateTime.now(), pago);
 
         api.crear(venta.toString());
+
         return pago;
 
     }

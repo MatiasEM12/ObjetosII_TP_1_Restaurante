@@ -2,6 +2,7 @@ package Entities;
 
 public abstract  class Producto  {
 
+
     private String nombre;
     private Double precio;
 
@@ -35,6 +36,5 @@ public abstract  class Producto  {
 
     private void validarPrecio(Double precio) {
         if (precio == null || precio < 0) throw new IllegalArgumentException("El precio del producto debe ser un número positivo.");
-
     }
 }

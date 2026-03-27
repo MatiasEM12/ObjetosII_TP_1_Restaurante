@@ -92,7 +92,7 @@ public class TarjetasTest {
 
 
         ArrayList<String> ventas= fakeArchivoVentas.listar();
-        assertTrue(ventas.contains(pedido.toStringVenta()), "La venta no se guardó correctamente en el archivo.");
+        assertTrue(ventas.contains(pedido.toStringVenta()), "La venta se guardó correctamente en el archivo.");
 
 
     }
