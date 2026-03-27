@@ -12,9 +12,9 @@ public class TarjetasTest {
 
     @Test
     void costoTarjetaVisa(){
-
+        var fakeArchivoVentas = new FakeArchivoVentas("ventasFake.txt");
         var tarjetaVisa = new TarjetaVisa(4532015112830366L);
-        var pedido= new Pedido( tarjetaVisa, Propina.DOS);
+        var pedido= new Pedido( tarjetaVisa, Propina.DOS,fakeArchivoVentas);
 
         ArrayList<Item> items = new ArrayList<>();
         items.add(new Item(new Bebida("Coca-Cola", 100.00,true), 2));
@@ -28,9 +28,9 @@ public class TarjetasTest {
     }
     @Test
     void costoTarjetaMastercard(){
-
+        var fakeArchivoVentas = new FakeArchivoVentas("ventasFake.txt");
         var tarjetaMartedcard = new TarjetaMastercard(4532015112830367L);
-        var pedido= new Pedido(tarjetaMartedcard, Propina.DOS);
+        var pedido= new Pedido(tarjetaMartedcard, Propina.DOS,fakeArchivoVentas);
 
         ArrayList<Item> items = new ArrayList<>();
         items.add(new Item(new Bebida("Coca-Cola", 100.00,true), 2));
@@ -44,8 +44,9 @@ public class TarjetasTest {
 
     @Test
     void costoTarjetaComarcaPlus(){
+        var fakeArchivoVentas = new FakeArchivoVentas("ventasFake.txt");
         var tarjetaComarcaPlus = new TarjetaComarcaPlus(4532015112830362L);
-        var pedido= new Pedido(tarjetaComarcaPlus, Propina.DOS);
+        var pedido= new Pedido(tarjetaComarcaPlus, Propina.DOS,fakeArchivoVentas);
 
         ArrayList<Item> items = new ArrayList<>();
         items.add(new Item(new Bebida("Coca-Cola", 100.00,true), 2));
@@ -59,8 +60,9 @@ public class TarjetasTest {
 
     @Test
     void costoTarjetaViedma(){
+        var fakeArchivoVentas = new FakeArchivoVentas("ventasFake.txt");
         var tarjetaViedma = new TarjetaViedma(4532015112830361L);
-        var pedido= new Pedido( tarjetaViedma, Propina.DOS);
+        var pedido= new Pedido( tarjetaViedma, Propina.DOS,fakeArchivoVentas);
 
         ArrayList<Item> items = new ArrayList<>();
         items.add(new Item(new Bebida("Coca-Cola", 100.00,true), 2));
@@ -75,9 +77,9 @@ public class TarjetasTest {
 
     @Test
     void archivoVentas(){
-
+        var fakeArchivoVentas = new FakeArchivoVentas("ventasFake.txt");
         var tarjetaVisa = new TarjetaVisa(4532015112830111L);
-        var pedido= new Pedido( tarjetaVisa, Propina.DOS);
+        var pedido= new Pedido( tarjetaVisa, Propina.DOS,fakeArchivoVentas);
 
         ArrayList<Item> items = new ArrayList<>();
         items.add(new Item(new Bebida("Coca-Cola", 100.00,true), 2));
@@ -87,20 +89,12 @@ public class TarjetasTest {
         var pagar= pedido.calcularTotal();
 
 
-        try {
-            var archivo= new ArchivoVentas();
-            archivo.crear(pedido.toStringVenta());
-            ArrayList<String> ventas= archivo.listar();
-            assertTrue(ventas.contains(pedido.toStringVenta()), "La venta no se guardó correctamente en el archivo.");
 
-        } catch (Exception e) {
-            fail("Error al leer el archivo: " + e.getMessage());
-        } finally {
-            // Limpiar archivo temporal
 
-            File file = new File("ventas.txt");
-            file.delete();
-        }
+        ArrayList<String> ventas= fakeArchivoVentas.listar();
+        assertTrue(ventas.contains(pedido.toStringVenta()), "La venta no se guardó correctamente en el archivo.");
+
+
     }
 
 
