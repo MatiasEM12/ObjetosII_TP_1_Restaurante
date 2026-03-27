@@ -1,6 +1,5 @@
 package Entities;
 
-import Persistence.ArchivoApi;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ import java.util.Arrays;
 public class Pedido {
 
 
-    private ArchivoApi api=new ArchivoApi();
+    private GestionArchivo<String> api;
     private ArrayList<Item> items;
     private Boolean confirmado=false;
     private Propina propina;
@@ -19,13 +18,13 @@ public class Pedido {
 
 
 
-    public Pedido( Tarjeta tarjeta, Propina propina) {
+    public Pedido( Tarjeta tarjeta, Propina propina, GestionArchivo<String> api) {
 
 
         validarTarjeta(tarjeta);
         validarPropina(propina);
 
-
+        this.api=api;
         this.items = new ArrayList<>();
         this.propina = propina;
         this.tarjeta = tarjeta;
@@ -115,7 +114,7 @@ public class Pedido {
         Double pago =totalConDescuento + propinaCalculada;
         this.venta= new Venta(LocalDateTime.now(), pago);
 
-        api.persistirVenta(this.venta);
+        api.crear(venta.toString());
         return pago;
 
     }

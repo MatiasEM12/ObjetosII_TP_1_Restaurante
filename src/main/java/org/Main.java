@@ -15,11 +15,11 @@ public class Main {
         System.out.println("=== CREANDO PEDIDOS ===\n");
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
-
-        var pedidoVisa = new Pedido(new TarjetaVisa(4532015112830366L), Propina.DOS);
-        var pedidoMastercard = new Pedido(new TarjetaMastercard(4532015112830367L), Propina.DOS);
-        var pedidoComarcaPlus = new Pedido(new TarjetaComarcaPlus(4532015112830362L), Propina.DOS);
-        var pedidoViedma = new Pedido(new TarjetaViedma(4532015112830361L), Propina.DOS);
+        var archivoVentas = new ArchivoVentas("ventas.txt");
+        var pedidoVisa = new Pedido(new TarjetaVisa(4532015112830366L), Propina.DOS,archivoVentas);
+        var pedidoMastercard = new Pedido(new TarjetaMastercard(4532015112830367L), Propina.DOS,archivoVentas);
+        var pedidoComarcaPlus = new Pedido(new TarjetaComarcaPlus(4532015112830362L), Propina.DOS,archivoVentas);
+        var pedidoViedma = new Pedido(new TarjetaViedma(4532015112830361L), Propina.DOS,archivoVentas);
 
         pedidos.add(pedidoVisa);
         pedidos.add(pedidoMastercard);
@@ -60,27 +60,13 @@ public class Main {
         // ========== GUARDAR VENTAS EN ARCHIVO ==========
         System.out.println("=== PERSISTENCIA DE DATOS ===\n");
 
-        ArrayList<String> ventas = new ArrayList<>();
-        ArchivoVentas archivo = new ArchivoVentas();
 
-        try {
-            for (Pedido pedido : pedidos) {
-                archivo.crear(pedido.toStringVenta());
-                System.out.println("Venta guardada: " + pedido.toStringVenta());
-            }
-
-            ventas = archivo.listar();
-            System.out.println("\nTotal de ventas en archivo: " + ventas.size());
-
-        } catch (Exception e) {
-            System.out.println("Error al guardar ventas: " + e.getMessage());
-        }
-
+        System.out.println("Se realiza en la logica de negocio de Pedido");
         System.out.println();
 
         // ========== LISTADO DE VENTAS DESDE EL ARCHIVO ==========
         System.out.println("=== LISTADO DE VENTAS DESDE EL ARCHIVO ===\n");
-
+        ArrayList<String> ventas = archivoVentas.listar();
         if (ventas.isEmpty()) {
             System.out.println("No hay ventas registradas");
         } else {
