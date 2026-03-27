@@ -1,14 +1,17 @@
 package Persistence;
 
+import Entities.GestionArchivo;
+
 import java.io.*;
 import java.util.ArrayList;
 
-public class ArchivoVentas implements GestionArchivo<String> {
+public class ArchivoVentas extends GestionArchivo<String> {
 
     private File archivo;
 
-    public ArchivoVentas(){
-        this.archivo = new File("ventas.txt");
+    public ArchivoVentas(String ruta){
+        super(ruta);
+        this.archivo = new File(ruta);
     }
     @Override
     public void crear(String dato) {
@@ -33,6 +36,22 @@ public class ArchivoVentas implements GestionArchivo<String> {
     }
 
     @Override
+    public void modificar(String dato) {
+        throw new RuntimeException("Modificación de ventas no implementada");
+
+    }
+
+    @Override
+    public void eliminar(int id) {
+        throw new RuntimeException("eliminar por Id de ventas no implementada");
+    }
+
+    @Override
+    public String buscar(int id) {
+        throw new RuntimeException("buscar por Id de ventas no implementada");
+    }
+
+    @Override
     public ArrayList<String> listar() {
         ArrayList<String> ventas = new ArrayList<>();
 
@@ -51,5 +70,10 @@ public class ArchivoVentas implements GestionArchivo<String> {
 
         return ventas;
 
+    }
+
+
+    private void validarDato(String dato){
+        if(dato==null || dato.isEmpty())throw new IllegalArgumentException("El dato no puede ser nulo o vacío.");
     }
 }
