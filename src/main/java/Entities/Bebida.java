@@ -3,13 +3,16 @@ package Entities;
 public class Bebida extends Producto {
 
     private Boolean disponible;
-
+    private Double precioBebida;
 
     public Bebida(String nombre, Double precio, Boolean disponible) {
 
 
-        super (nombre, precio);
+        super (nombre);
+        validarPrecio(precio);
         validarDisponible(disponible);
+
+        this.precioBebida=precio;
         this.disponible = disponible;
 
     }
@@ -23,13 +26,7 @@ public class Bebida extends Producto {
 
     }
 
-
-    @Override
-    public boolean correspondeA(CriterioItem criterio) {
-        return criterio.cumpleParaBebida(this);
-    }
-    @Override
-    public double subtotalComoBebida(double subtotal) {
-        return subtotal;
+    private void validarPrecio(Double precio){
+        if(precio==null||precio<0) throw new IllegalArgumentException("El precio no puede ser nullo o menor a 0");
     }
 }

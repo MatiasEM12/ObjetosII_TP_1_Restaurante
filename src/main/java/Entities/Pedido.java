@@ -77,24 +77,20 @@ public class Pedido {
     }
 
 
-    public double obtenerSubtotalSegun(CriterioItem criterio) {
-        return items.stream()
-                .filter(item -> item.correspondeA(criterio))
-                .mapToDouble(Item::obtenerSubtotal)
-                .sum();
-    }
+
 
     public double obtenerSubTotalBebidas() {
-        return obtenerSubtotalSegun(new SoloBebidas());
+
+        return items.stream().mapToDouble(Item::subTotalBebida).sum();
     }
 
     public double obtenerSubTotalPlatos() {
-        return obtenerSubtotalSegun(new SoloPlatos());
+        return items.stream().mapToDouble(Item::subTotalPlato).sum();
     }
 
     public double obtenerSubTotal() {
         return items.stream()
-                .mapToDouble(Item::obtenerSubtotal)
+                .mapToDouble(Item::obtenerSubTotal)
                 .sum();
     }
 

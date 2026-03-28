@@ -16,20 +16,20 @@ public class Item  {
 
 
 
-    public Double obtenerSubtotal() {
-        return producto.getPrecio() * cantidad;
-    }
 
     public Producto getProducto() {
         return producto;
     }
 
-    public double subtotalComoBebida() {
-        return producto.subtotalComoBebida(obtenerSubtotal());
+    public Double obtenerSubTotal(){
+        return this.subTotalBebida()+this.subTotalPlato();
+    }
+    public Double subTotalBebida() {
+        return producto.getPrecioBebida() * this.cantidad;
     }
 
-    public double subtotalComoPlato() {
-        return producto.subtotalComoPlato(obtenerSubtotal());
+    public double subTotalPlato() {
+        return producto.getPrecioPlato() * this.cantidad;
     }
     //VALIDACIONES
 
@@ -42,7 +42,5 @@ public class Item  {
         if (cantidad == null || cantidad <= 0) throw new IllegalArgumentException("La cantidad debe ser un número entero positivo.");
 
     }
-    public boolean correspondeA(CriterioItem criterio) {
-        return producto.correspondeA(criterio);
-    }
+
 }

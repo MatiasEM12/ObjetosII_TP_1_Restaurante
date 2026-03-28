@@ -4,29 +4,25 @@ public abstract  class Producto  {
 
 
     private String nombre;
-    private Double precio;
+    private Double precioPlato=0.0;
+    private Double precioBebida=0.0;
 
-    public Producto(String nombre, Double precio) {
+    public Producto(String nombre) {
         validarNombre(nombre);
-        validarPrecio(precio);
 
         this.nombre = nombre;
-        this.precio = precio;
     }
 
-    public Double getPrecio() {
-        return precio;
+    public Double getPrecioPlato() {
+        return precioPlato;
     }
 
-    public double subtotalComoBebida(double subtotal) {
-        return 0;
+    public Double getPrecioBebida(){
+        return precioBebida;
     }
 
-    public double subtotalComoPlato(double subtotal) {
-        return 0;
-    }
 
-    public abstract boolean correspondeA(CriterioItem criterio);
+
     //VALIDACIONES
 
     private void validarNombre(String nombre) {
