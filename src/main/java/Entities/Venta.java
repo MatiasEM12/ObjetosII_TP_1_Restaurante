@@ -52,7 +52,7 @@ public class Venta {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String fechaString = horaPago.format(formato);
 
-        return  horaPago+" || " +  String.valueOf(this.pago);
+        return  fechaString+" || " +  String.valueOf(this.pago);
     }
 
     public LocalDateTime getHoraPago() {

@@ -97,7 +97,7 @@ public class Pedido {
 
     public double calcularTotal(){
 
-        if(!confirmado) throw new IllegalStateException("El pedido debe estar confirmado para calcular el total.");
+        if(confirmado==false) throw new IllegalStateException("El pedido debe estar confirmado para calcular el total.");
 
         double subTotal = obtenerSubTotal();
 
@@ -154,8 +154,6 @@ public class Pedido {
     }
     public String toStringVenta(){
         if(this.venta==null) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede generar la información de venta.");
-
-
 
         return  venta.toString();
     }
