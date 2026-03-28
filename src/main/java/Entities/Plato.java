@@ -4,6 +4,7 @@ public class Plato  extends Producto {
 
 
     private Double precioPlato;
+
     private Boolean disponible;
 
 
@@ -17,6 +18,15 @@ public class Plato  extends Producto {
 
     }
 
+    @Override
+    public Double getPrecioPlato() {
+        return this.precioPlato;
+    }
+
+    @Override
+    public Double getPrecioBebida() {
+        return 0.0;
+    }
 
     //VALIDACIONES
 

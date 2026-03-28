@@ -47,7 +47,7 @@ public class Venta {
     }
 
     public String toString(){
-        if(this.horaPago==null || this.pago==0.0) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede generar la información de venta.");
+        if(this.horaPago==null) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede generar la información de venta.");
 
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String fechaString = horaPago.format(formato);

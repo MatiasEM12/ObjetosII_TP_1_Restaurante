@@ -4,22 +4,17 @@ public abstract  class Producto  {
 
 
     private String nombre;
-    private Double precioPlato=0.0;
-    private Double precioBebida=0.0;
+
 
     public Producto(String nombre) {
         validarNombre(nombre);
 
+
         this.nombre = nombre;
     }
 
-    public Double getPrecioPlato() {
-        return precioPlato;
-    }
-
-    public Double getPrecioBebida(){
-        return precioBebida;
-    }
+    public abstract Double getPrecioPlato();
+    public abstract Double getPrecioBebida();
 
 
 

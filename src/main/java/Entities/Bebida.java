@@ -26,6 +26,16 @@ public class Bebida extends Producto {
 
     }
 
+    @Override
+    public Double getPrecioPlato() {
+        return 0.0;
+    }
+
+    @Override
+    public Double getPrecioBebida() {
+        return this.precioBebida;
+    }
+
     private void validarPrecio(Double precio){
         if(precio==null||precio<0) throw new IllegalArgumentException("El precio no puede ser nullo o menor a 0");
     }
