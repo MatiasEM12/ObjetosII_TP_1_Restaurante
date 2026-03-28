@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="SQL">
+    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="pom sql">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Backend/VentaDAOJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +18,9 @@
     <persistenceIdMap>
       <entry key="_C:/Users/matia/IdeaProjects/ObjetosII_TP_1_Restaurante" value="3BX6mLoqQQZdeVI2t5yG4QMGULS" />
     </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedChatMode">
+    <option name="chatModeId" value="Agent" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -62,6 +67,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;ObjetosII__TP2__EJ3__BaseDeDatos__Ventas&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -115,7 +121,39 @@
       <option name="project" value="LOCAL" />
       <updated>1774722873354</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="pom">
+      <option name="closed" value="true" />
+      <created>1774723004622</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1774723004622</updated>
+    </task>
+    <task id="LOCAL-00005" summary="pom sql">
+      <option name="closed" value="true" />
+      <created>1774723102843</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1774723102843</updated>
+    </task>
+    <task id="LOCAL-00006" summary="pom sql">
+      <option name="closed" value="true" />
+      <created>1774723111867</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1774723111867</updated>
+    </task>
+    <task id="LOCAL-00007" summary="pom sql">
+      <option name="closed" value="true" />
+      <created>1774723230320</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774723230320</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +162,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor clases corruptas" />
     <MESSAGE value="SQL" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQL" />
+    <MESSAGE value="pom" />
+    <MESSAGE value="pom sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="pom sql" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
