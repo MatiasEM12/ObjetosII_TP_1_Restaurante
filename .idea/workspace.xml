@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="daojdbc fake">
+    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="refactor fakeVentaDao VentaDAoJDBC">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/VentaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/VentaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/VentaDAOJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/VentaDAOJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FakeVentadaDAOJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FakeVentadaDAOJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TarjetaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TarjetaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,24 +63,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ObjetosII__TP2__EJ3__BaseDeDatos__Ventas&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.TarjetaTest.accesoVentas.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "ObjetosII__TP2__EJ3__BaseDeDatos__Ventas",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="TarjetaTest.accesoVentas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ObjetosII_TP_1_Restaurante" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TarjetaTest" />
+      <option name="METHOD_NAME" value="accesoVentas" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TarjetaTest.accesoVentas" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -217,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774793292333</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="refactor fakeVentaDao VentaDAoJDBC">
+      <option name="closed" value="true" />
+      <created>1774794595572</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1774794595572</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +253,8 @@
     <MESSAGE value="sql" />
     <MESSAGE value="test" />
     <MESSAGE value="daojdbc fake" />
-    <option name="LAST_COMMIT_MESSAGE" value="daojdbc fake" />
+    <MESSAGE value="refactor fakeVentaDao VentaDAoJDBC" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor fakeVentaDao VentaDAoJDBC" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ObjetosII_TP_1_Restaurante$TarjetasTest.ic" NAME="TarjetasTest Coverage Results" MODIFIED="1774790736226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
