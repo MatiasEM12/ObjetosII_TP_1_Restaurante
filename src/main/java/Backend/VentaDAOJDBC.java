@@ -10,6 +10,10 @@ import java.util.List;
 public class VentaDAOJDBC implements  VentaDAO{
 
 
+    public VentaDAOJDBC(){
+
+    }
+
     @Override
     public void create(Venta venta) {
 
