@@ -97,7 +97,8 @@
       <updated>1774623226006</updated>
       <workItem from="1774623227390" duration="946000" />
       <workItem from="1774646700271" duration="366000" />
-      <workItem from="1774724112727" duration="550000" />
+      <workItem from="1774724112727" duration="775000" />
+      <workItem from="1774789467874" duration="254000" />
     </task>
     <task id="LOCAL-00001" summary="refactor clases corruptas">
       <option name="closed" value="true" />
@@ -163,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774724331403</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="pom sql">
+      <option name="closed" value="true" />
+      <created>1774724917755</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1774724917755</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

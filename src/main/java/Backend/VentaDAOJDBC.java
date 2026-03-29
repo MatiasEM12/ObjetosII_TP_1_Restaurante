@@ -12,7 +12,7 @@ public class VentaDAOJDBC implements  VentaDAO{
 
         if(venta==null)throw  new IllegalArgumentException("La venta es nulla,no se puede persistir");
 
-        final String SQL="";
+        final String SQL="INSERT INTO ventas (id,hora_pago)";
     }
 
     @Override
