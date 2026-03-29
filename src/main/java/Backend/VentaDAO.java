@@ -4,17 +4,21 @@ import Entities.Venta;
 
 import java.util.List;
 
-public interface VentaDAO {
+public abstract class VentaDAO {
 
-    void create(Venta venta);
+    protected VentaDAO(){
 
-    void update(Venta venta);
+    }
 
-    void remove(String id);
+    public abstract void create(Venta venta);
 
-    void remove(Venta venta);
+    public abstract void update(Venta venta);
 
-    Venta find(String codigo);
+    public abstract void remove(String id);
 
-    List<Venta> findAll();
+    public abstract void remove(Venta venta);
+
+    public abstract Venta find(String codigo);
+
+    public abstract List<Venta> findAll();
 }

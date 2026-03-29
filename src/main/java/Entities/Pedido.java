@@ -1,6 +1,8 @@
 package Entities;
 
 
+import Backend.VentaDAO;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +10,7 @@ import java.util.Arrays;
 public class Pedido {
 
 
-
+    private VentaDAO ventaDao;
     private ArrayList<Item> items;
     private Boolean confirmado=false;
     private Propina propina;
@@ -18,13 +20,14 @@ public class Pedido {
 
 
 
-    public Pedido( Tarjeta tarjeta, Propina propina) {
+    public Pedido( Tarjeta tarjeta, Propina propina,VentaDAO ventaDao) {
 
 
         validarTarjeta(tarjeta);
         validarPropina(propina);
+        validarVentaDAO(ventaDao);
 
-
+        this.ventaDao=ventaDao;
         this.items = new ArrayList<>();
         this.propina = propina;
         this.tarjeta = tarjeta;
@@ -110,7 +113,7 @@ public class Pedido {
         Double pago =totalConDescuento + propinaCalculada;
         this.venta= new Venta(LocalDateTime.now(), pago);
 
-
+        ventaDao.create(venta);
 
         return pago;
 
@@ -147,6 +150,10 @@ public class Pedido {
 
     private void validarVenta(Double venta){
         if(venta==null || venta<0)throw new IllegalArgumentException("La venta debe ser un valor positivo.");
+    }
+
+    private void validarVentaDAO(VentaDAO dao){
+        if(dao==null)throw new IllegalArgumentException("La venta dao no debe ser nula");
     }
 
     private void validarHoraPago(LocalDateTime horaPago){

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VentaDAOJDBC implements  VentaDAO{
+public class VentaDAOJDBC extends   VentaDAO{
 
 
     public VentaDAOJDBC(){

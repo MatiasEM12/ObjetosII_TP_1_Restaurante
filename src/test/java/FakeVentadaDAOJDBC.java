@@ -4,11 +4,12 @@ import Entities.Venta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeVentadaDAOJDBC implements VentaDAO {
+public class FakeVentadaDAOJDBC extends VentaDAO {
 
     List<Venta>ventas;
 
     public FakeVentadaDAOJDBC(){
+
         ventas= new ArrayList<>();
     }
 
@@ -43,4 +44,5 @@ public class FakeVentadaDAOJDBC implements VentaDAO {
     public List<Venta> findAll() {
         return this.ventas;
     }
+
 }
