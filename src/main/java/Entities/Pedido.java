@@ -1,5 +1,7 @@
 package Entities;
 
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,6 +14,10 @@ public class Pedido {
     private Propina propina;
     private Tarjeta tarjeta;
 
+    private Venta venta;
+
+
+
     public Pedido( Tarjeta tarjeta, Propina propina) {
 
 
@@ -23,6 +29,25 @@ public class Pedido {
         this.propina = propina;
         this.tarjeta = tarjeta;
     }
+
+    public Pedido( Tarjeta tarjeta, Propina propina, Venta venta,ArrayList<Item> items,Boolean confirmado ) {
+
+
+        validarTarjeta(tarjeta);
+        validarPropina(propina);
+        validarItems(items);
+        validarConfirmacion(confirmado);
+
+
+        this.venta=venta;
+        this.items = items;
+        this.confirmado = confirmado;
+        this.propina = propina;
+        this.tarjeta = tarjeta;
+
+
+    }
+
 
     public void confirmarPedido(){
         if(items.isEmpty())throw new IllegalStateException("El pedido debe contener al menos un item para ser confirmado.");
@@ -44,7 +69,7 @@ public class Pedido {
     }
 
     public void agregarItems(ArrayList<Item> nuevosItems){
-       validarItems(nuevosItems);
+        validarItems(nuevosItems);
 
         if(confirmado) throw new IllegalStateException("No se pueden agregar items a un pedido ya confirmado.");
 
@@ -52,31 +77,27 @@ public class Pedido {
     }
 
 
-    public double obtenerSubtotalSegun(CriterioItem criterio) {
-        return items.stream()
-                .filter(item -> item.correspondeA(criterio))
-                .mapToDouble(Item::obtenerSubtotal)
-                .sum();
-    }
+
 
     public double obtenerSubTotalBebidas() {
-        return obtenerSubtotalSegun(new SoloBebidas());
+
+        return items.stream().mapToDouble(Item::subTotalBebida).sum();
     }
 
     public double obtenerSubTotalPlatos() {
-        return obtenerSubtotalSegun(new SoloPlatos());
+        return items.stream().mapToDouble(Item::subTotalPlato).sum();
     }
 
     public double obtenerSubTotal() {
         return items.stream()
-                .mapToDouble(Item::obtenerSubtotal)
+                .mapToDouble(Item::obtenerSubTotal)
                 .sum();
     }
 
 
     public double calcularTotal(){
 
-        if(!confirmado) throw new IllegalStateException("El pedido debe estar confirmado para calcular el total.");
+        if(confirmado==false) throw new IllegalStateException("El pedido debe estar confirmado para calcular el total.");
 
         double subTotal = obtenerSubTotal();
 
@@ -86,7 +107,18 @@ public class Pedido {
 
         double propinaCalculada = propina.calcularSobre(totalConDescuento);
 
-        return totalConDescuento + propinaCalculada;
+        Double pago =totalConDescuento + propinaCalculada;
+        this.venta= new Venta(LocalDateTime.now(), pago);
+
+
+
+        return pago;
+
+    }
+
+    public Venta getVenta() {
+        if(this.venta==null) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede obtener la información de venta.");
+        return this.venta;
     }
     //VALIDACIONES
 
@@ -113,6 +145,16 @@ public class Pedido {
         if(confirmado) throw new IllegalStateException("El pedido ya ha sido confirmado.");
     }
 
+    private void validarVenta(Double venta){
+        if(venta==null || venta<0)throw new IllegalArgumentException("La venta debe ser un valor positivo.");
+    }
 
+    private void validarHoraPago(LocalDateTime horaPago){
+        if(horaPago==null)throw new IllegalStateException("La hora de pago no puede ser nula.");
+    }
+    public String toStringVenta(){
+        if(this.venta==null) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede generar la información de venta.");
 
+        return  venta.toString();
+    }
 }

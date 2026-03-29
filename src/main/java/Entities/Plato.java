@@ -3,27 +3,29 @@ package Entities;
 public class Plato  extends Producto {
 
 
+    private Double precioPlato;
 
     private Boolean disponible;
 
 
     public Plato(String nombre,  Double precio, Boolean disponible) {
 
-
-        super (nombre, precio);
+        super (nombre);
+        validarPrecio(precio);
         validarDisponible( disponible);
+        precioPlato=precio;
         this.disponible = disponible;
 
     }
 
     @Override
-    public boolean correspondeA(CriterioItem criterio) {
-        return criterio.cumpleParaPlato(this);
+    public Double getPrecioPlato() {
+        return this.precioPlato;
     }
 
     @Override
-    public double subtotalComoPlato(double subtotal) {
-        return subtotal;
+    public Double getPrecioBebida() {
+        return 0.0;
     }
 
     //VALIDACIONES
@@ -34,11 +36,15 @@ public class Plato  extends Producto {
 
     }
 
+    private void validarPrecio(Double precio){
+        if(precio==null || precio <0) throw new IllegalArgumentException("El precio no puede ser nulo ni menor a 0");
+    }
 
 
 
 
-    
+
+
 
 
 
@@ -46,3 +52,14 @@ public class Plato  extends Producto {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
