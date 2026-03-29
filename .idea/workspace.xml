@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="pom sql">
+    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="sql">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Bebida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Bebida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/CriterioItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Plato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Plato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/SoloBebidas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/SoloPlatos.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +106,7 @@
       <workItem from="1774623227390" duration="946000" />
       <workItem from="1774646700271" duration="366000" />
       <workItem from="1774724112727" duration="775000" />
-      <workItem from="1774789467874" duration="254000" />
+      <workItem from="1774789467874" duration="898000" />
     </task>
     <task id="LOCAL-00001" summary="refactor clases corruptas">
       <option name="closed" value="true" />
@@ -172,7 +180,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774724917755</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="sql">
+      <option name="closed" value="true" />
+      <created>1774789884948</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1774789884950</updated>
+    </task>
+    <task id="LOCAL-00011" summary="sql">
+      <option name="closed" value="true" />
+      <created>1774789974896</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1774789974896</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +207,8 @@
     <MESSAGE value="SQL" />
     <MESSAGE value="pom" />
     <MESSAGE value="pom sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="pom sql" />
+    <MESSAGE value="sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="sql" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

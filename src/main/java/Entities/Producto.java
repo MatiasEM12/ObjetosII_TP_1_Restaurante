@@ -2,30 +2,22 @@ package Entities;
 
 public abstract  class Producto  {
 
-    private String nombre;
-    private Double precio;
 
-    public Producto(String nombre, Double precio) {
+    private String nombre;
+
+
+    public Producto(String nombre) {
         validarNombre(nombre);
-        validarPrecio(precio);
+
 
         this.nombre = nombre;
-        this.precio = precio;
     }
 
-    public Double getPrecio() {
-        return precio;
-    }
+    public abstract Double getPrecioPlato();
+    public abstract Double getPrecioBebida();
 
-    public double subtotalComoBebida(double subtotal) {
-        return 0;
-    }
 
-    public double subtotalComoPlato(double subtotal) {
-        return 0;
-    }
 
-    public abstract boolean correspondeA(CriterioItem criterio);
     //VALIDACIONES
 
     private void validarNombre(String nombre) {
@@ -35,6 +27,5 @@ public abstract  class Producto  {
 
     private void validarPrecio(Double precio) {
         if (precio == null || precio < 0) throw new IllegalArgumentException("El precio del producto debe ser un número positivo.");
-
     }
 }

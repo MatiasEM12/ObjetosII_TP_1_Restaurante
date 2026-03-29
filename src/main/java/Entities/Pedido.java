@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class Pedido {
 
 
+
     private ArrayList<Item> items;
     private Boolean confirmado=false;
     private Propina propina;
@@ -76,31 +77,27 @@ public class Pedido {
     }
 
 
-    public double obtenerSubtotalSegun(CriterioItem criterio) {
-        return items.stream()
-                .filter(item -> item.correspondeA(criterio))
-                .mapToDouble(Item::obtenerSubtotal)
-                .sum();
-    }
+
 
     public double obtenerSubTotalBebidas() {
-        return obtenerSubtotalSegun(new SoloBebidas());
+
+        return items.stream().mapToDouble(Item::subTotalBebida).sum();
     }
 
     public double obtenerSubTotalPlatos() {
-        return obtenerSubtotalSegun(new SoloPlatos());
+        return items.stream().mapToDouble(Item::subTotalPlato).sum();
     }
 
     public double obtenerSubTotal() {
         return items.stream()
-                .mapToDouble(Item::obtenerSubtotal)
+                .mapToDouble(Item::obtenerSubTotal)
                 .sum();
     }
 
 
     public double calcularTotal(){
 
-        if(!confirmado) throw new IllegalStateException("El pedido debe estar confirmado para calcular el total.");
+        if(confirmado==false) throw new IllegalStateException("El pedido debe estar confirmado para calcular el total.");
 
         double subTotal = obtenerSubTotal();
 
@@ -112,6 +109,7 @@ public class Pedido {
 
         Double pago =totalConDescuento + propinaCalculada;
         this.venta= new Venta(LocalDateTime.now(), pago);
+
 
 
         return pago;
@@ -156,8 +154,6 @@ public class Pedido {
     }
     public String toStringVenta(){
         if(this.venta==null) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede generar la información de venta.");
-
-
 
         return  venta.toString();
     }
