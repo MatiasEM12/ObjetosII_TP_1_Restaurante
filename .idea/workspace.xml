@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="refactor fakeVentaDao VentaDAoJDBC">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Main.java" afterDir="false" />
+    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
     <option name="chatModeId" value="Agent" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="31" />
+    <option name="cachedIndexableFilesCount" value="32" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,26 +63,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.TarjetaTest.accesoVentas.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "ObjetosII__TP2__EJ3__BaseDeDatos__Ventas",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.TarjetaTest.accesoVentas.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ObjetosII__TP2__EJ3__BaseDeDatos__Ventas&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Main" />
+      <module name="ObjetosII_TP_1_Restaurante" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TarjetaTest.accesoVentas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ObjetosII_TP_1_Restaurante" />
       <option name="PACKAGE_NAME" value="" />
@@ -95,6 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TarjetaTest.accesoVentas" />
       </list>
     </recent_temporary>
@@ -118,6 +132,7 @@
       <workItem from="1774646700271" duration="366000" />
       <workItem from="1774724112727" duration="775000" />
       <workItem from="1774789467874" duration="898000" />
+      <workItem from="1774803444002" duration="288000" />
     </task>
     <task id="LOCAL-00001" summary="refactor clases corruptas">
       <option name="closed" value="true" />
@@ -239,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774794595572</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="main">
+      <option name="closed" value="true" />
+      <created>1774794720977</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1774794720977</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +277,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="daojdbc fake" />
     <MESSAGE value="refactor fakeVentaDao VentaDAoJDBC" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor fakeVentaDao VentaDAoJDBC" />
+    <MESSAGE value="main" />
+    <option name="LAST_COMMIT_MESSAGE" value="main" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ObjetosII_TP_1_Restaurante$TarjetasTest.ic" NAME="TarjetasTest Coverage Results" MODIFIED="1774790736226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
