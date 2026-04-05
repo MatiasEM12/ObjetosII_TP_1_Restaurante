@@ -18,6 +18,12 @@ public class Main {
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
         var ventaDao = new VentaDAOJDBC();
+
+        try {
+            ventaDao.truncateTabla();
+        }catch (RuntimeException e){
+            System.out.println("Error al truncar la tabla de ventas: " + e.getMessage());
+        }
         var pedidoVisa = new Pedido(new TarjetaVisa(4532015112830366L), Propina.DOS,ventaDao);
         var pedidoMastercard = new Pedido(new TarjetaMastercard(4532015112830367L), Propina.DOS,ventaDao);
         var pedidoComarcaPlus = new Pedido(new TarjetaComarcaPlus(4532015112830362L), Propina.DOS,ventaDao);

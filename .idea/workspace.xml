@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="main">
+    <list default="true" id="53523d17-7b28-4caf-b5fd-cf85f8d209e1" name="Changes" comment="MAIN">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/VentaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/VentaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend/VentaDAOJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend/VentaDAOJDBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FakeVentadaDAOJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FakeVentadaDAOJDBC.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +68,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TarjetaTest.accesoVentas.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -117,7 +121,6 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
       </set>
     </attachedChunks>
   </component>
@@ -132,7 +135,7 @@
       <workItem from="1774646700271" duration="366000" />
       <workItem from="1774724112727" duration="775000" />
       <workItem from="1774789467874" duration="898000" />
-      <workItem from="1774803444002" duration="288000" />
+      <workItem from="1774803444002" duration="539000" />
     </task>
     <task id="LOCAL-00001" summary="refactor clases corruptas">
       <option name="closed" value="true" />
@@ -262,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774794720977</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="MAIN">
+      <option name="closed" value="true" />
+      <created>1774803970420</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1774803970421</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +289,8 @@
     <MESSAGE value="daojdbc fake" />
     <MESSAGE value="refactor fakeVentaDao VentaDAoJDBC" />
     <MESSAGE value="main" />
-    <option name="LAST_COMMIT_MESSAGE" value="main" />
+    <MESSAGE value="MAIN" />
+    <option name="LAST_COMMIT_MESSAGE" value="MAIN" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ObjetosII_TP_1_Restaurante$TarjetasTest.ic" NAME="TarjetasTest Coverage Results" MODIFIED="1774790736226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VentaDAOJDBC extends   VentaDAO{
+public class VentaDAOJDBC  implements VentaDAO{
 
 
     public VentaDAOJDBC(){
@@ -85,5 +85,20 @@ public class VentaDAOJDBC extends   VentaDAO{
 
         return ventas;
     }
+    @Override
+    public void truncateTabla(){
 
+        final String SQL="TRUNCATE TABLE ventas";
+
+        try(Connection conn=ConnectionManager.getConnection();
+            Statement statement = conn.createStatement()){
+
+            statement.executeUpdate(SQL);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally{
+            ConnectionManager.disconnect();
+        }
+    }
 }

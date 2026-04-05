@@ -4,7 +4,7 @@ import Entities.Venta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeVentadaDAOJDBC extends VentaDAO {
+public class FakeVentadaDAOJDBC implements  VentaDAO {
 
     List<Venta>ventas;
 
@@ -43,6 +43,11 @@ public class FakeVentadaDAOJDBC extends VentaDAO {
     @Override
     public List<Venta> findAll() {
         return this.ventas;
+    }
+
+    @Override
+    public void truncateTabla() {
+        this.ventas.clear();
     }
 
 }
