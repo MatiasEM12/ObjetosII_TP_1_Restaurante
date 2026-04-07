@@ -16,8 +16,11 @@ public class Main {
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
         var archivoVentas = new ArchivoVentas("ventas.txt");
-        archivoVentas.eliminarArchivo("ventas.txt");//elimino el archivo para que no se acumulen las ventas de ejecuciones anteriores.
-
+        try {
+            archivoVentas.eliminarArchivo("ventas.txt");//elimino el archivo para que no se acumulen las ventas de ejecuciones anteriores.
+        } catch (Exception e) {
+            System.out.println("No se pudo eliminar el archivo de ventas: " + e.getMessage());
+        }
         var pedidoVisa = new Pedido(new TarjetaVisa(4532015112830366L), Propina.DOS,archivoVentas);
         var pedidoMastercard = new Pedido(new TarjetaMastercard(4532015112830367L), Propina.DOS,archivoVentas);
         var pedidoComarcaPlus = new Pedido(new TarjetaComarcaPlus(4532015112830362L), Propina.DOS,archivoVentas);
