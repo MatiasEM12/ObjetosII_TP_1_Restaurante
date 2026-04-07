@@ -5,12 +5,12 @@ import Entities.GestionArchivo;
 import java.io.*;
 import java.util.ArrayList;
 
-public class ArchivoVentas extends GestionArchivo<String> {
+public class ArchivoVentas implements GestionArchivo<String> {
 
     private File archivo;
 
     public ArchivoVentas(String ruta){
-        super(ruta);
+        validarDato(ruta);
         this.archivo = new File(ruta);
     }
     @Override
@@ -44,6 +44,19 @@ public class ArchivoVentas extends GestionArchivo<String> {
     @Override
     public void eliminar(int id) {
         throw new RuntimeException("eliminar por Id de ventas no implementada");
+    }
+
+    @Override
+    public void eliminarArchivo(String ruta) {
+        validarDato(ruta);
+        File archivoAEliminar = new File(ruta);
+        if (archivoAEliminar.exists()) {
+            if (!archivoAEliminar.delete()) {
+                throw new RuntimeException("No se pudo eliminar el archivo: " + ruta);
+            }
+        } else {
+            throw new RuntimeException("El archivo no existe: " + ruta);
+        }
     }
 
     @Override
