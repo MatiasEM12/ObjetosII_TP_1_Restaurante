@@ -116,7 +116,7 @@ public class Pedido {
 
     }
 
-    public Venta getVenta() {
+    public Venta venta() {
         if(this.venta==null) throw new IllegalStateException("El pedido no ha sido pagado aún, no se puede obtener la información de venta.");
         return this.venta;
     }
@@ -140,7 +140,6 @@ public class Pedido {
 
     private void validarConfirmacion(Boolean confirmado){
         if(confirmado==null)throw new IllegalArgumentException("El estado de confirmación no puede ser nulo.");
-
 
         if(confirmado) throw new IllegalStateException("El pedido ya ha sido confirmado.");
     }

@@ -27,12 +27,12 @@ public class Bebida extends Producto {
     }
 
     @Override
-    public Double getPrecioPlato() {
+    public Double precioPlato() {
         return 0.0;
     }
 
     @Override
-    public Double getPrecioBebida() {
+    public Double precioBebida() {
         return this.precioBebida;
     }
 

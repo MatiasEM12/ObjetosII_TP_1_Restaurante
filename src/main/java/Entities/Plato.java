@@ -19,12 +19,12 @@ public class Plato  extends Producto {
     }
 
     @Override
-    public Double getPrecioPlato() {
+    public Double precioPlato() {
         return this.precioPlato;
     }
 
     @Override
-    public Double getPrecioBebida() {
+    public Double precioBebida() {
         return 0.0;
     }
 

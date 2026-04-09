@@ -13,8 +13,8 @@ public abstract  class Producto  {
         this.nombre = nombre;
     }
 
-    public abstract Double getPrecioPlato();
-    public abstract Double getPrecioBebida();
+    public abstract Double precioPlato();
+    public abstract Double precioBebida();
 
 
 

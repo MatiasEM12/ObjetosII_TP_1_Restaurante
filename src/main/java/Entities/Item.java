@@ -17,7 +17,7 @@ public class Item  {
 
 
 
-    public Producto getProducto() {
+    public Producto producto() {
         return producto;
     }
 
@@ -25,11 +25,11 @@ public class Item  {
         return this.subTotalBebida()+this.subTotalPlato();
     }
     public Double subTotalBebida() {
-        return producto.getPrecioBebida() * this.cantidad;
+        return producto.precioBebida() * this.cantidad;
     }
 
     public double subTotalPlato() {
-        return producto.getPrecioPlato() * this.cantidad;
+        return producto.precioPlato() * this.cantidad;
     }
     //VALIDACIONES
 
