@@ -24,9 +24,9 @@ public class VentaDAOJDBC  implements VentaDAO{
         try(Connection conn=ConnectionManager.getConnection();
             PreparedStatement st= conn.prepareStatement(SQL)){
 
-            st.setString(1,venta.getId());
-            st.setTimestamp(2, Timestamp.valueOf(venta.getHoraPago()));
-            st.setDouble(3,venta.getPago());
+            st.setString(1,venta.id());
+            st.setTimestamp(2, Timestamp.valueOf(venta.horaPago()));
+            st.setDouble(3,venta.pago());
 
             st.executeUpdate();
 

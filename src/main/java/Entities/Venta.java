@@ -55,15 +55,15 @@ public class Venta {
         return  horaPago+" || " +  String.valueOf(this.pago);
     }
 
-    public LocalDateTime getHoraPago() {
+    public LocalDateTime horaPago() {
         return this.horaPago;
     }
 
-    public Double getPago() {
+    public Double pago() {
         return this.pago;
     }
 
-    public String getId(){
+    public String id(){
         return this.id;
     }
 

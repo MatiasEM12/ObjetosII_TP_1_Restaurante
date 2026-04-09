@@ -16,7 +16,7 @@ public enum Propina {
         return monto * porcentaje;
     }
 
-    public double getPorcentaje() {
+    public double porcentaje() {
         return porcentaje;
     }
 }
